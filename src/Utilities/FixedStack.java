@@ -5,13 +5,12 @@ public class FixedStack implements IntStack {
 	private int stack[];
 	private int position;
 	
-	FixedStack(int size){
+	public FixedStack(int size){
 		stack = new int[size];
 		position = 0;
 	}
 
 	//Pushing an item onto the stack!
-	@Override
 	public void push(int item) {
 		// TODO Auto-generated method stub
 		if(position >= stack.length-1){
@@ -23,7 +22,6 @@ public class FixedStack implements IntStack {
 	}
 	
 	//Popping the top item from the stack.
-	@Override
 	public int pop() {
 		// TODO Auto-generated method stub
 		if(position < 0){
