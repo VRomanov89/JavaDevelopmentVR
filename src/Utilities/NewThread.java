@@ -1,7 +1,7 @@
 package Utilities;
 
 public class NewThread implements Runnable {
-	Thread t;
+	public Thread t;
 	
 	public NewThread() {
 		t = new Thread(this, "Demo Thread");
