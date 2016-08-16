@@ -1,15 +1,7 @@
-//import InterfacesVR.IntStack;
-import Utilities.*;
-import java.io.*;
+import DataStructures.*;
 
 public class Main {
-	public static void main(String args[]) throws IOException {
-		char c;
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Enter characters. Use q to exit");
-		do {
-			c = (char) br.read();
-			System.out.println(c);
-		} while (c != 'q');
+	public static void main(String args[]){
+		
 	}
 }
