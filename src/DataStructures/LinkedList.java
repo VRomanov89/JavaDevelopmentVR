@@ -2,6 +2,7 @@ package DataStructures;
 
 public class LinkedList {
 	public Link firstLink;
+	private int val;
 	
 	public LinkedList() {
 		firstLink = null;
@@ -51,6 +52,22 @@ public class LinkedList {
 			System.out.println("The list is empty!");
 		}
 		return theLink;
+	}
+	
+	public Link find2(int val) {
+		Link pointer1 = firstLink;
+		Link pointer2 = firstLink;
+		while(pointer1 != null && pointer1.millionsSold != val) {
+			pointer2 = pointer1;
+			pointer1 = pointer1.next;
+		}
+		if(pointer1 == null) {
+			return null;
+		} else {
+			pointer2.next = pointer1.next;
+			System.out.println(pointer1.millionsSold);
+			return pointer1;
+		}
 	}
 	
 	public Link removeLink(String bookName) {
