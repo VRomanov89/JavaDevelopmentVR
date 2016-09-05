@@ -1,10 +1,9 @@
 import DataStructures.*;
-import DataStructures.Practice.Stack;
+import JavaBook.*;
 
 public class Main {
 	public static void main(String args[]){
-		Stack myStack = new Stack();
-		myStack.push(5, "test");
-		myStack.push(5, "test");
+		Chapter3 myChapter3 = new Chapter3();
+		myChapter3.boolDemo();
 	}
 }
