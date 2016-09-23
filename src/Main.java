@@ -1,12 +1,15 @@
-import DataStructures.*;
-import JavaBook.*;
-import JavaBook.Chapter11.NewThread;
+import JavaBook.Chapter11;
+import JavaBook.Chapter11.CallMe;
+import JavaBook.Chapter11.Caller;
+import JavaBook.Chapter11.Q;
 
 public class Main {
-	public static void main(String args[]) throws InterruptedException{
-		Chapter11 mychap = new Chapter11();
-		new Chapter11().new NewThread();
-		//Chapter11 myChap = new Chapter11();
-		mychap.threadTest();	
+	public static void main(String args[]) throws InterruptedException{	
+		Q q = new Chapter11().new Q();
+		new Chapter11().new Producer(q);
+		new Chapter11().new Consumer(q);
+		System.out.println("Press Control-c to stop.");
+		
+		
 	}
 }
