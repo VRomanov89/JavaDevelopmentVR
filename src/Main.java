@@ -1,15 +1,10 @@
-import JavaBook.Chapter11;
-import JavaBook.Chapter11.CallMe;
-import JavaBook.Chapter11.Caller;
-import JavaBook.Chapter11.Q;
+import java.io.IOException;
+
+import JavaBook.Chapter13;
 
 public class Main {
-	public static void main(String args[]) throws InterruptedException{	
-		Q q = new Chapter11().new Q();
-		new Chapter11().new Producer(q);
-		new Chapter11().new Consumer(q);
-		System.out.println("Press Control-c to stop.");
-		
-		
+	public static void main(String args[]) throws InterruptedException, IOException{	
+		Chapter13 myChap = new Chapter13();
+		myChap.readData();
 	}
 }
