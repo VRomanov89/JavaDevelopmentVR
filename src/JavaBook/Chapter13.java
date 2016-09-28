@@ -1,5 +1,6 @@
 package JavaBook;
 import java.io.*;
+import Utilities.*;
 
 public class Chapter13 {
 	public void readData() throws IOException {
@@ -10,5 +11,36 @@ public class Chapter13 {
 			c = (char) br.read();
 			System.out.println(c);
 		}while(c != 'q');
+	}
+	
+	public void FileOpen(String fileName) {
+		int i;
+		FileInputStream fin;
+		if(fileName.length() <= 1) {
+			System.out.println("Usage: ShowFile filename");
+			return;
+		}
+		
+		try {
+			fin = new FileInputStream(fileName);
+		}catch(FileNotFoundException e) {
+			System.out.println("Cannot open file");
+			return;
+		}
+		
+		try {
+			do {
+				i = fin.read();
+				if(i != -1) System.out.println((char) i);
+			} while(1 != -1);
+		}catch(IOException e) {
+			System.out.println("Error reading file.");
+		}
+		
+		try {
+			fin.close();
+		}catch(IOException e) {
+			System.out.println("Error closing");
+		}
 	}
 }
