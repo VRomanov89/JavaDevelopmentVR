@@ -1,8 +1,8 @@
-import JavaBook.Chapter18;
+import CodingInterview.Chapter1;
 
 public class Main {
 	public static void main(String args[]){	
-		Chapter18 myChap = new Chapter18();
-		myChap.arrayListDemo();
+		Chapter1 myChap = new Chapter1();
+		System.out.println(myChap.isPermuationOf("bobby", "bobyb"));
 	}
 }
