@@ -36,4 +36,10 @@ public class Chapter1 {
 		}
 		return true;
 	}
+	
+	public String URLify(String str) {
+		String[] strArr = str.split(" ");
+		String finalStr = String.join("%20", strArr);
+		return finalStr;
+	}
 }
