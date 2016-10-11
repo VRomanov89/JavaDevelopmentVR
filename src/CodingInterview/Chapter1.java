@@ -134,4 +134,61 @@ public class Chapter1 {
 		String string1 = stringB.toString();
 		return string1;
 	}
+	
+	public void q7MatrixRotate(int[][] matrix, int n) {
+		for(int layer = 0; layer < n / 2; ++layer) {
+			int first = layer;
+			int last = n - 1 - layer;
+			for(int i = first; i < last; ++i) {
+				int offset = i - first;
+				int top = matrix[first][i];
+				matrix[first][i] = matrix[last-offset][first];
+				matrix[last-offset][first] = matrix[last][last - offset];
+				matrix[last][last-offset] = matrix[i][last];
+				matrix[i][last] = top;
+			}
+		}
+	}
+	
+	public void q8MatrixZeroElements(int[][] matrix) {
+		boolean[] row = new boolean[matrix.length];
+		boolean[] column = new boolean[matrix[0].length];
+		
+		for(int i = 0; i < matrix.length; i++) {
+			for(int j = 0; j < matrix[0].length; j++) {
+				if(matrix[i][j] == 0) {
+					row[i] = true;
+					column[j] = true;
+				}
+			}
+		}
+		
+		//Change correct rows to 0.
+		for(int i = 0; i < row.length; i++) {
+			if(row[i]) {
+				for(int j = 0; j < matrix[0].length; j++) {
+					matrix[i][j] = 0;
+				}
+			}
+		}
+		
+		//Change correct columns to 0.
+		for(int i = 0; i < column.length; i++) {
+			if(column[i]) {
+				for(int j = 0; j < matrix.length; j++) {
+					matrix[j][i] = 0;
+				}
+			}
+		}
+	}
+	
+	public boolean q9RotationString(String str1, String str2) {
+		int len = str1.length();
+		if(len == str2.length() && len > 0) {
+			String s1s1 = str1 + str1;
+			//return isSubstring(s1s1, str2);
+		}
+		return false;
+	}
+	
 }
