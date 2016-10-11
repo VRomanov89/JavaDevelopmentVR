@@ -42,4 +42,77 @@ public class Chapter1 {
 		String finalStr = String.join("%20", strArr);
 		return finalStr;
 	}
+	
+	public boolean permutationPalindrome(String str) {
+		// Can the string have a palindrome?
+		// 1. We don't care about spaces based on Example
+		String newStr = str.replaceAll(" ", "").toLowerCase();
+		// 2 conditions: 1. odd characters, so we can allow one mid char.
+		// 2. even characters, all need to be even!
+		int[] charSet = new int[255];
+		for(int i = 0; i < newStr.length(); i++) {
+			charSet[newStr.charAt(i)]++;
+		}
+		int leftOver = 0;
+		for(int i = 0; i < charSet.length; i++) {
+			System.out.println(charSet[i]);
+			leftOver += charSet[i] % 2;
+		}
+		if (newStr.length() % 2 == 0 && leftOver == 0) {
+			return true;
+		} else if(newStr.length() % 2 == 1 && leftOver == 1) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean oneEditAway(String str1, String str2) {
+		//IS str2 one edit away from str1? Edit: insert, delete, replace.
+		// IF insert, str1 + 1 char = str2.
+		// IF delete, str1 - 1 char = str2.
+		// IF replace, str1 (change one char) = str2.
+		boolean flaw = false;
+		if(str1.length() == str2.length()) {
+			for(int i = 0; i < str1.length(); i++) {
+				if(str1.charAt(i) != str2.charAt(i)) {
+					if(flaw == true) {
+						return false;
+					} else {
+						flaw = true;
+					}
+				}
+			}
+		} else if (str1.length() + 1 == str2.length()) {
+			for(int i = 0, j = 0;j < str2.length(); i++, j++) {
+				if(i == str2.length() - 1) {
+					break;
+				}
+				if(str1.charAt(i) != str2.charAt(j)) {
+					if(flaw == true) {
+						return false;
+					} else {
+						flaw = true;
+						i--;
+					}
+				}
+			}
+		} else if (str1.length() == str2.length() + 1) {
+			for(int i = 0, j = 0; i < str1.length(); i++, j++) {
+				if(i == str1.length() - 1) {
+					break;
+				}
+				if(str1.charAt(i) != str2.charAt(j)) {
+					if(flaw == true) {
+						return false;
+					} else {
+						flaw = true; 
+						j--;
+					}
+				}
+			}
+		} else {
+			return false;
+		}
+		return true;
+	}
 }
