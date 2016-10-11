@@ -115,4 +115,23 @@ public class Chapter1 {
 		}
 		return true;
 	}
+	
+	public String q6StringCompression(String str) {
+		StringBuilder stringB = new StringBuilder();
+		stringB.append(str.charAt(0));
+		for(int i = 1, counter = 1; i < str.length(); i++) {
+			if(str.charAt(i) == str.charAt(i-1)) {
+				counter++;
+			}else {
+				stringB.append(counter);
+				stringB.append(str.charAt(i));
+				counter = 1;
+			}
+			if(i == str.length()-1) {
+				stringB.append(counter);
+			}
+		}
+		String string1 = stringB.toString();
+		return string1;
+	}
 }
