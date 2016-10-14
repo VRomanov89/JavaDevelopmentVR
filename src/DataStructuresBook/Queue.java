@@ -1,9 +1,9 @@
 package DataStructuresBook;
 
-public interface Stack<E> {
+public interface Queue<E> {
 	int size();
 	boolean isEmpty();
-	void push(E e);
-	E pop();
+	void enqueue(E e);
+	E dequeue();
 	E top();
 }
